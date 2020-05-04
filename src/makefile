@@ -1,14 +1,14 @@
 CC = gcc
 CFLAGS = -O3 -Wall
 
-all : main
+all : out
 
-calc : main.c
-	$(CC) $(CFLAGS) main.c -o main.o
+out : main.c
+	$(CC) $(CFLAGS) main.c -o out
 
-runcalc : main.o
-	./main.o
+run : out
+	./out
 
 .PHONY : clean
 clean :
-	rm -f main.o
+	rm -f out

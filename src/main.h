@@ -6,9 +6,13 @@
 #define CALCULADORA_ESPECIAL_MAIN_H
 
 // Includes
-#include <stdbool.h>  // per a tractar booleans
-#include <stdlib.h>  // Per a fer servir malloc
-#include <stdio.h>  // per a fer servir la funcio printf en els jocs de proves
+#include <stdbool.h>  // Use booleans
+#include <stdlib.h>  // use of malloc
+#include <stdio.h>  // Use of printf, scanf and files
+#include <limits.h>  // Invocation of defines like MAX_INT
+
+// Defines
+#define MAX_ELEMENTS 100  // Defines de maximum number of elements
 
 
 #endif //CALCULADORA_ESPECIAL_MAIN_H
