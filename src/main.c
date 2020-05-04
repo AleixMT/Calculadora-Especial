@@ -10,7 +10,7 @@
 * Precondition: parameter "value" is a natural number.
 * Postcondition: return = value * acum; value = value - 1 where value is a natural number.
 * Errors: Unsigned long long integer overflow. This happens when result is bigger than ULLONG_MAX 18.446.744.073.709.551.615
-* (0xffffffffffffffff). Maximum calulable factorial is 20!. 21! cause overflow:
+* (0xffffffffffffffff). Maximum calculable factorial is 20!. 21! cause overflow:
 * 2,432,902,008,176,640,000 = 20! < ULLONG_MAX < 21! = 51,090,942,171,709,440,000
 * Params:
 * - value: Number to calculate factorial.
@@ -163,22 +163,31 @@ int main(int nargs, char* args[])
                     int *array_list = malloc(sizeof(int) * MAX_ELEMENTS);  // Reserve space for the array
                     // Open File
                     FILE *file_pointer;
-                    file_pointer = fopen("input_cerca_dicotomica.txt", "r");
-                    if (file_pointer == NULL) {
-                        printf("\nError opening the file");
+                    file_pointer = fopen("input6.txt", "r");
+                    if (file_pointer == NULL)
+                    {
+                        printf("\nERROR: No s'ha pogut obrir el fitxer");
                         break;
                     }
 
                     // Fill the array with elements until MAX_ELEMENTS is reached or EOF is reached
                     unsigned int num_elems;  // Declared here to allow access
                     for (num_elems = 0; fscanf(file_pointer, "%i", &array_list[num_elems]) != EOF && num_elems < MAX_ELEMENTS; num_elems++) {}
+                    if (num_elems == 0)
+                    {
+                        printf("\nERROR: El fitxer está buit o no s'ha pogut llegir cap nombre. Abortant operació... Torna-ho a intentar");
+                        break;
+                    }
+                    printf("\nContingut de la llista:\n");
 
                     // Check that the list is sorted before doing binary search
                     int previous = INT_MIN;
-                    bool sorted = true;  // List is sorted until we found the opposite
+                    bool sorted = true;  // List is sorted until we find the opposite
                     for (int i = 0; i < num_elems && sorted; i++)
                     {
                         if (previous > array_list[i]) sorted = false;
+                        previous = array_list[i];
+                        printf("%i ", array_list[i]);
                     }
                     if (!sorted)  // If list is not sorted abort this method
                     {
