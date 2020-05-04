@@ -163,7 +163,7 @@ int main(int nargs, char* args[])
                     int *array_list = malloc(sizeof(int) * MAX_ELEMENTS);  // Reserve space for the array
                     // Open File
                     FILE *file_pointer;
-                    file_pointer = fopen("input6.txt", "r");
+                    file_pointer = fopen("input.txt", "r");
                     if (file_pointer == NULL)
                     {
                         printf("\nERROR: No s'ha pogut obrir el fitxer");
